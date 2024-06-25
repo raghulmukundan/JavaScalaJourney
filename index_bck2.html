@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylish Two-Component Layout with Subsections</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa; /* Light grey background */
+        }
+        .navbar-custom {
+            background-color: #343a40; /* Dark background */
+        }
+        .navbar-custom .navbar-brand,
+        .navbar-custom .nav-link {
+            color: #ffffff; /* White text */
+        }
+        .navbar-custom .nav-link:hover {
+            color: #d3d3d3; /* Light grey on hover */
+        }
+        .header-title {
+            font-weight: bold;
+            font-size: 2.5rem;
+            color: #343a40;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .header-subtitle {
+            font-size: 1.2rem;
+            color: #6c757d;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .list-group-item {
+            cursor: pointer;
+        }
+        .content-area {
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="#">MyWebsite</a>
+    </nav>
+
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="list-group" id="navList">
+                    <a class="list-group-item list-group-item-action" data-toggle="collapse" href="#beginner" role="button" aria-expanded="false" aria-controls="beginner">Beginner</a>
+                    <div class="collapse" id="beginner">
+                        <div class="list-group">
+                            <a class="list-group-item list-group-item-action" data-target="beginner/content.html">Overview</a>
+                            <a class="list-group-item list-group-item-action" data-target="beginner/content.html">Getting Started</a>
+                        </div>
+                    </div>
+                    
+                    <a class="list-group-item list-group-item-action" data-toggle="collapse" href="#section2Subsections" role="button" aria-expanded="false" aria-controls="section2Subsections">Intermediate</a>
+                    <div class="collapse" id="section2Subsections">
+                        <div class="list-group">
+                            <a class="list-group-item list-group-item-action" data-target="subsection2_1.html">Syntax</a>
+                            <a class="list-group-item list-group-item-action" data-target="subsection2_2.html">Data Types</a>
+                        </div>
+                    </div>
+
+                    <a class="list-group-item list-group-item-action" data-toggle="collapse" href="#section3Subsections" role="button" aria-expanded="false" aria-controls="section3Subsections">Advanced</a>
+                    <div class="collapse" id="section3Subsections">
+                        <div class="list-group">
+                            <a class="list-group-item list-group-item-action" data-target="subsection3_1.html">Threads</a>
+                            <a class="list-group-item list-group-item-action" data-target="subsection3_2.html">Synchronization</a>
+                        </div>
+                    </div>
+
+                    <a class="list-group-item list-group-item-action" data-toggle="collapse" href="#section4Subsections" role="button" aria-expanded="false" aria-controls="section4Subsections">Expert</a>
+                    <div class="collapse" id="section4Subsections">
+                        <div class="list-group">
+                            <a class="list-group-item list-group-item-action" data-target="subsection4_1.html">section4</a>
+                            <a class="list-group-item list-group-item-action" data-target="subsection4_2.html">section4.2</a>
+                        </div>
+                    </div>
+
+                    <a class="list-group-item list-group-item-action" data-toggle="collapse" href="#section5Subsections" role="button" aria-expanded="false" aria-controls="section5Subsections">Expert</a>
+                    <div class="collapse" id="section4Subsections">
+                        <div class="list-group">
+                            <a class="list-group-item list-group-item-action" data-target="subsection4_1.html">section4</a>
+                            <a class="list-group-item list-group-item-action" data-target="subsection4_2.html">section4.2</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="content-area" id="contentArea">
+                    <h2>Welcome to My Stylish Website</h2>
+                    <p>Select a section or subsection from the left to view its content here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.list-group-item-action').on('click', function(e) {
+                var target = $(this).data('target');
+                if (target) {
+                    $('#contentArea').load(target, function(response, status, xhr) {
+                        if (status == "error") {
+                            var msg = "Sorry but there was an error: ";
+                            $("#contentArea").html(msg + xhr.status + " " + xhr.statusText);
+                        }
+                    });
+                    $('.list-group-item-action').removeClass('active');
+                    $(this).addClass('active');
+                    e.preventDefault(); // Prevent default anchor behavior
+                }
+            });
+        });
+    </script>
+</body>
+</html>
