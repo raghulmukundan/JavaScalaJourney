@@ -4,8 +4,13 @@ $(document).ready(function() {
         e.preventDefault();
         $('#navJava').addClass('active');
         $('#navScala').removeClass('active');
-        $('#indexList').load('java/index.html');
-        $('#contentArea').html('<h2>Java</h2><p>Select a subsection from the left to view its content here.</p>');
+        $('#indexList').load('java/index.html', function() {
+            // Highlight the "Beginner" section and load its content
+            const initialTarget = $('#indexList .list-group-item[data-target="java/beginner/intro.html"]');
+            $('#javaBeginner').addClass('show');
+            initialTarget.addClass('active');
+            $('#contentArea').load(initialTarget.data('target'));
+        });
     });
 
     $('#mainNav').on('click', '#navScala', function(e) {

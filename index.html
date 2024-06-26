@@ -11,7 +11,7 @@
     <nav id="mainNav"></nav>
 
     <div class="container-fluid mt-4">
-        <div class="row">
+        <div class="row no-gutters">
             <div class="col-md-3" id="indexList">
                 <!-- Index will be loaded here -->
             </div>
@@ -37,8 +37,13 @@
             // Load the navigation
             $('#mainNav').load('nav.html', function() {
                 $('#navJava').addClass('active');
-                $('#indexList').load('java/index.html');
-                $('#contentArea').html('<h2>Java</h2><p>Select a subsection from the left to view its content here.</p>');
+                $('#indexList').load('java/index.html', function() {
+                    // Highlight the "Beginner" section and load its content
+                    const initialTarget = $('#indexList .list-group-item[data-target="java/beginner/intro.html"]');
+                    $('#javaBeginner').addClass('show');
+                    initialTarget.addClass('active');
+                    $('#contentArea').load(initialTarget.data('target'));
+                });
             });
         });
     </script>
