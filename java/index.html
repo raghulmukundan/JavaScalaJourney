@@ -1,53 +1,25 @@
-<div class="container-fluid mt-4">
-    <div class="row">
-        <div class="col-md-3">
-            <div class="list-group" id="navList">
-                <a class="list-group-item list-group-item-action" data-toggle="collapse" href="#beginner" role="button" aria-expanded="false" aria-controls="beginner">Beginner</a>
-                <div class="collapse" id="beginner">
-                    <div class="list-group">
-                        <a class="list-group-item list-group-item-action" data-target="beginner/content.html">Overview</a>
-                        <a class="list-group-item list-group-item-action" data-target="beginner/content.html">Getting Started</a>
-                    </div>
-                </div>
-                
-                <a class="list-group-item list-group-item-action" data-toggle="collapse" href="#section2Subsections" role="button" aria-expanded="false" aria-controls="section2Subsections">Intermediate</a>
-                <div class="collapse" id="section2Subsections">
-                    <div class="list-group">
-                        <a class="list-group-item list-group-item-action" data-target="subsection2_1.html">Syntax</a>
-                        <a class="list-group-item list-group-item-action" data-target="subsection2_2.html">Data Types</a>
-                    </div>
-                </div>
-
-                <a class="list-group-item list-group-item-action" data-toggle="collapse" href="#section3Subsections" role="button" aria-expanded="false" aria-controls="section3Subsections">Advanced</a>
-                <div class="collapse" id="section3Subsections">
-                    <div class="list-group">
-                        <a class="list-group-item list-group-item-action" data-target="subsection3_1.html">Threads</a>
-                        <a class="list-group-item list-group-item-action" data-target="subsection3_2.html">Synchronization</a>
-                    </div>
-                </div>
-
-                <a class="list-group-item list-group-item-action" data-toggle="collapse" href="#section4Subsections" role="button" aria-expanded="false" aria-controls="section4Subsections">Expert</a>
-                <div class="collapse" id="section4Subsections">
-                    <div class="list-group">
-                        <a class="list-group-item list-group-item-action" data-target="subsection4_1.html">section4</a>
-                        <a class="list-group-item list-group-item-action" data-target="subsection4_2.html">section4.2</a>
-                    </div>
-                </div>
-
-                <a class="list-group-item list-group-item-action" data-toggle="collapse" href="#section5Subsections" role="button" aria-expanded="false" aria-controls="section5Subsections">Expert</a>
-                <div class="collapse" id="section4Subsections">
-                    <div class="list-group">
-                        <a class="list-group-item list-group-item-action" data-target="subsection4_1.html">section4</a>
-                        <a class="list-group-item list-group-item-action" data-target="subsection4_2.html">section4.2</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-9">
-            <div class="content-area" id="contentArea">
-                <h2>Welcome to My Stylish Website</h2>
-                <p>Select a section or subsection from the left to view its content here.</p>
-            </div>
-        </div>
+<div class="list-group">
+    <a class="list-group-item list-group-item-action" data-toggle="collapse" href="#javaBeginner" role="button" aria-expanded="false" aria-controls="javaBeginner">Beginner</a>
+    <div class="collapse nested-list-group" id="javaBeginner">
+        <a class="list-group-item list-group-item-action" data-target="java/beginner1.html">Introduction</a>
+        <a class="list-group-item list-group-item-action" data-target="java/beginner2.html">Getting Started</a>
+    </div>
+    
+    <a class="list-group-item list-group-item-action" data-toggle="collapse" href="#javaIntermediate" role="button" aria-expanded="false" aria-controls="javaIntermediate">Intermediate</a>
+    <div class="collapse nested-list-group" id="javaIntermediate">
+        <a class="list-group-item list-group-item-action" data-target="java/intermediate1.html">OOP Concepts</a>
+        <a class="list-group-item list-group-item-action" data-target="java/intermediate2.html">Collections Framework</a>
+    </div>
+    
+    <a class="list-group-item list-group-item-action" data-toggle="collapse" href="#javaAdvanced" role="button" aria-expanded="false" aria-controls="javaAdvanced">Advanced</a>
+    <div class="collapse nested-list-group" id="javaAdvanced">
+        <a class="list-group-item list-group-item-action" data-target="java/advanced1.html">Concurrency</a>
+        <a class="list-group-item list-group-item-action" data-target="java/advanced2.html">Streams API</a>
+    </div>
+    
+    <a class="list-group-item list-group-item-action" data-toggle="collapse" href="#javaExpert" role="button" aria-expanded="false" aria-controls="javaExpert">Expert</a>
+    <div class="collapse nested-list-group" id="javaExpert">
+        <a class="list-group-item list-group-item-action" data-target="java/expert1.html">JVM Internals</a>
+        <a class="list-group-item list-group-item-action" data-target="java/expert2.html">Performance Tuning</a>
     </div>
 </div>

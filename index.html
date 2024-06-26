@@ -17,8 +17,8 @@
             </div>
             <div class="col-md-9">
                 <div class="content-area" id="contentArea">
-                    <h2>Welcome to My Stylish Website</h2>
-                    <p>Select a section from the navigation to view its content here.</p>
+                    <h2>Java</h2>
+                    <p>Select a subsection from the left to view its content here.</p>
                 </div>
             </div>
         </div>
@@ -31,10 +31,11 @@
     <script>
         $(document).ready(function() {
             // Load the navigation
-            $('#mainNav').load('nav.html');
-
-            // Load the default Java index
-            $('#indexList').load('java/index.html');
+            $('#mainNav').load('nav.html', function() {
+                $('#navJava').addClass('active');
+                $('#indexList').load('java/index.html');
+                $('#contentArea').html('<h2>Java</h2><p>Select a subsection from the left to view its content here.</p>');
+            });
         });
     </script>
 </body>
