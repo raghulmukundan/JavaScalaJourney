@@ -1,19 +1,32 @@
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f8f9fa; /* Light grey background */
+  font-family: 'Roboto', sans-serif;
+  background-color: #f0f2f5; /* Light grey background */
+  margin: 0;
+  padding: 0;
 }
 
 .navbar-custom {
-  background-color: #343a40; /* Dark background */
+  background-color: #20232a; /* Dark background */
+}
+
+.navbar-custom .navbar-brand img {
+  margin-right: 10px;
 }
 
 .navbar-custom .nav-link {
-  color: #ffffff; /* White text */
+  color: #61dafb; /* React Blue */
   padding: 15px;
+  font-weight: 500;
 }
 
 .navbar-custom .nav-link:hover, .navbar-custom .nav-link.active {
-  color: #d3d3d3; /* Light grey on hover and active */
+  color: #21a1f1; /* Lighter Blue */
+}
+
+.navbar-custom .navbar-text {
+  color: #61dafb;
+  font-weight: 700;
+  font-size: 1.2rem;
 }
 
 .container-fluid {
@@ -25,24 +38,45 @@ body {
   border: none; /* Remove border */
   border-radius: 0; /* No rounded corners */
   padding: 10px 15px;
+  background-color: #ffffff; /* White background */
+  color: #333; /* Dark text color */
+  font-weight: 500;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .list-group-item:hover, .list-group-item.active {
   background-color: #e9ecef; /* Light grey background on hover and active */
+  color: #000; /* Darker text color */
 }
 
 .content-area {
   padding: 20px;
   background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   min-height: 300px; /* Ensure the content area has a minimum height */
 }
 
 .content-area h2 {
   margin-top: 0;
+  color: #20232a; /* Darker heading color */
+  font-weight: 700;
+}
+
+.content-area p {
+  color: #555; /* Lighter text color */
 }
 
 .nested-list-group {
   padding-left: 15px;
+}
+
+footer {
+  background-color: #20232a;
+  color: #61dafb;
+  padding: 10px 0;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }
