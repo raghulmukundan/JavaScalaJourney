@@ -10,6 +10,7 @@ $(document).ready(function() {
             $('#javaBeginner').addClass('show');
             initialTarget.addClass('active');
             $('#contentArea').load(initialTarget.data('target'));
+          
         });
     });
 
@@ -18,7 +19,7 @@ $(document).ready(function() {
         $('#navScala').addClass('active');
         $('#navJava').removeClass('active');
         $('#indexList').load('scala/index.html');
-        $('#contentArea').html('<h2>Scala</h2><p>Select a subsection from the left to view its content here.</p>');
+        $('#contentArea').html('<h2>Scala</h2><p>Select a subsection from the left to view its content here.</p>');4
     });
 
     // Load content based on the index click
@@ -26,7 +27,20 @@ $(document).ready(function() {
         e.preventDefault();
         var target = $(this).data('target');
         if (target) {
-            $('#contentArea').load(target);
+            $('#contentArea').load(target, function() {
+                Prism.highlightAll();
+                $('.copy-button').click(function() {
+                    var code = $(this).siblings('pre').find('code').text();
+                    var copyStatus =  $(this).siblings('div .copy-status')
+                    console.log("button clicked")
+                    console.log(code);
+                    navigator.clipboard.writeText(code).then(function() {
+                       copyStatus.fadeIn().delay(5000).fadeOut();
+                    }, function() {
+                        console.log("error copy");
+                    });
+                });
+            });
             $('.list-group-item').removeClass('active');
             $(this).addClass('active');
         }
