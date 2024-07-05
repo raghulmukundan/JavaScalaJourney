@@ -1,6 +1,6 @@
 package com.javascalajourney;
 
-public class RunnableThread implements Runnable {
+class RunnableThread implements Runnable {
     
     @Override
     public void run(){
