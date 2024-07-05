@@ -118,16 +118,16 @@ footer {
 }
 
 .content-area h3 {
-  font-size: 1.5rem; /* Size for tertiary headings */
-  line-height: 1.4; /* Improved line spacing */
-  margin-top: 15px; /* Space above the tertiary heading */
+  font-size: 1rem; /* Size for tertiary headings */
+  line-height: 1; /* Improved line spacing */
+  margin-top: 20px; /* Space above the tertiary heading */
 }
 
 .content-area p {
   color: #555; /* Lighter text color */
   font-size: 1rem; /* Slightly larger font size for readability */
   line-height: 1.8; /* Improved line spacing */
-  margin-bottom: 20px; /* Space below paragraphs */
+  margin-bottom: 10px; /* Space below paragraphs */
 }
 
 .content-area ol {
@@ -177,4 +177,6 @@ pre{
 pre[class*="language-"] {
   white-space: normal !important;
   padding-bottom: 2em !important;
+  padding: 3em !important;
+  font-size: 14px !important;
 }

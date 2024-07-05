@@ -28,12 +28,18 @@ $(document).ready(function() {
         var target = $(this).data('target');
         if (target) {
             $('#contentArea').load(target, function() {
+                $('code[data-src]').each(function() {
+                    var codeBlock = $(this);
+                    var src = codeBlock.data('loc') + "/code/src/com/javascalajourney/"+codeBlock.data('src');
+                    $.get(src, function(data) {
+                        codeBlock.text(data);
+                        Prism.highlightAll();
+                    });
+                });
                 Prism.highlightAll();
                 $('.copy-button').click(function() {
                     var code = $(this).siblings('pre').find('code').text();
                     var copyStatus =  $(this).siblings('div .copy-status')
-                    console.log("button clicked")
-                    console.log(code);
                     navigator.clipboard.writeText(code).then(function() {
                        copyStatus.fadeIn().delay(5000).fadeOut();
                     }, function() {
