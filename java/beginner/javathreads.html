@@ -1,5 +1,5 @@
 <div class="content-area">
-    <h1>Java Threads</h1>
+    <h1>Java Threads Basics</h1>
     <h2>Creating and Starting Threads</h2>
     <p>In Java, there are two primary ways to create a new thread:</p>
     <ol>
@@ -16,27 +16,31 @@
     <div class="code-container">
         <div class="top-left copy-status">Code copied!</div>
         <button class="top-right btn btn-primary copy-button">Copy</button>
-            <pre>  
+        <pre>
                 <code class="language-java" data-loc="java" data-src="SimpleThread.java"></code>
             </pre>
     </div>
     <h3>Implementing the <i>Runnable</i> interface</h3>
-    <p>The more flexible approach is to implement the Runnable interface. This allows you to extend another class if needed.</p>
+    <p>The more flexible approach is to implement the Runnable interface. This allows you to extend another class if
+        needed.</p>
     <div class="code-container">
         <div class="top-left copy-status">Code copied!</div>
         <button class="top-right btn btn-primary copy-button">Copy</button>
-            <pre>  
+        <pre>
                 <code class="language-java" data-loc="java" data-src="RunnableThread.java"></code>
             </pre>
     </div>
 
- <h2>The Thread class and Runnable interface</h2>
- <ul>
-    <li>
-        <p><b>Thread Class:</b> Represents a thread of execution in a program. The Thread class itself implements the <i>Runnable</i> interface.</p>
-    </li>
-    <li>
-        <p><b>Runnable Interface:</b> Should be implemented by any class whose instances are intended to be executed by a thread. It has a single method, <i>run()</i>, which contains the code to be executed by the thread.</p>
-    </li>
-</ul>
- </div>
+    <h2>The Thread class and Runnable interface</h2>
+    <ul>
+        <li>
+            <p><b>Thread Class:</b> Represents a thread of execution in a program. The Thread class itself implements
+                the <b><i>Runnable</i></b> interface.</p>
+        </li>
+        <li>
+            <p><b>Runnable Interface:</b> Should be implemented by any class whose instances are intended to be executed
+                by a thread. It has a single method, <b><i>run()</i></b>, which contains the code to be executed by the
+                thread.</p>
+        </li>
+    </ul>
+</div>

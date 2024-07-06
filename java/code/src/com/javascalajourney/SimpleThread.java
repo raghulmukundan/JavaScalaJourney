@@ -1,6 +1,7 @@
 package com.javascalajourney;
 
- class SimpleThread extends Thread {
+class SimpleThread extends Thread {
+
     @Override
     public void run() {
         System.out.println("Thread is running");

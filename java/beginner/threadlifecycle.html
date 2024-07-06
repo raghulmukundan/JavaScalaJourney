@@ -1,0 +1,88 @@
+<div class="content-area">
+    <h1>Thread Lifecycle & States</h1>
+    <p> A thread can be in one of the following states:</p>
+    <ul>
+        <li>
+            <p><b>New:</b> A thread that has been created but not yet started.</p>
+        </li>
+        <li>
+            <p><b>Blocked:</b> A thread that is blocked and waiting for a monitor lock.</p>
+        </li>
+        <li>
+            <p><b>Runnable:</b> A thread that is ready to run and is waiting for CPU time.</p>
+        </li>
+        <li>
+            <p><b>Waiting:</b> A thread that is waiting indefinitely for another thread to perform a particular action.
+            </p>
+        </li>
+        <li>
+            <p><b>Timed Waiting:</b> A thread that is waiting for another thread to perform an action for up to a
+                specified waiting time.</p>
+        </li>
+        <li>
+            <p><b>Terminated:</b> A thread that has exited.</p>
+        </li>
+    </ul>
+
+    <h3>Basic Thread Methods</h3>
+    <ol>
+        <li>
+            <p><b>start():</b> Starts a new thread. The JVM calls the <b><i>run()</i></b> method of this thread.</p>
+            <div class="code-container" style="padding-bottom:5px;">
+                <div class="top-left copy-status" style="padding-top: 5px;">Code copied!</div>
+                <button class="top-right btn btn-primary copy-button">Copy</button>
+                <pre>
+                    <code class="language-java" data-loc="java" data-src="RunnableThread.java"></code>
+                </pre>
+            </div>
+        </li>
+        <li>
+            <p><b>sleep(long millis):</b> Causes the currently executing thread to sleep (temporarily cease execution)
+                for
+                the specified number of milliseconds.</p>
+            <div class="code-container" style="padding-bottom:5px;">
+                <div class="top-left copy-status" style="padding-top: 5px;">Code copied!</div>
+                <button class="top-right btn btn-primary copy-button">Copy</button>
+                <pre>
+                    <code class="language-java" data-loc="java" data-src="ThreadSleep.java"></code>
+                </pre>
+            </div>
+        </li>
+        <li>
+            <p><b>join():</b> Waits for this thread to die.</p>
+            <div class="code-container" style="padding-bottom:5px;">
+                <div class="top-left copy-status" style="padding-top: 5px;">Code copied!</div>
+                <button class="top-right btn btn-primary copy-button">Copy</button>
+                <pre>
+                    <code class="language-java" data-loc="java" data-src="ThreadJoin.java"></code>
+                </pre>
+            </div>
+        </li>
+        <li>
+            <p><b>yield():</b> Causes the currently executing thread object to temporarily pause and allow other threads
+                to execute.</p>
+            <div class="code-container" style="padding-bottom:5px;">
+                <div class="top-left copy-status" style="padding-top: 5px;">Code copied!</div>
+                <button class="top-right btn btn-primary copy-button">Copy</button>
+                <pre>
+                    <code class="language-java" data-loc="java" data-src="ThreadYield.java"></code>
+                </pre>
+            </div>
+        </li>
+    </ol>
+    <h2>In-Depth Explanation</h2>
+    <ul>
+        <li><b>Thread Creation:</b>When a new thread is created using <b><i>new Thread()</i></b>, the JVM allocates
+            memory and resources for the thread.</li>
+        <li><b>start() Method:</b>This native method creates a new OS-level thread and schedules it to run the
+            <b><i>run()</i></b> method.
+        </li>
+        <li><b>sleep() Method:</b> It temporarily pauses the thread's execution. The thread remains in the <b><i>Timed
+                    Waiting</i></b> state during this period.</li>
+        <li><b>join() Method:</b> It allows one thread to wait for the completion of another. It internally uses the
+            <b><i>wait()</i></b> method of the Object class.
+        </li>
+        <li><b>yield() Method:</b> It hints to the thread scheduler that the current thread is willing to yield its
+            current use of a processor but it's not guaranteed.</li>
+    </ul>
+</div>

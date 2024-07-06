@@ -1,12 +1,14 @@
 body {
-  font-family:Arial, sans-serif;
-  background-color: #f0f2f5; /* Light grey background */
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  /* Light grey background */
   margin: 0;
   padding: 0;
 }
 
 .navbar-custom {
-  background-color: #20232a; /* Dark background */
+  background-color: #20232a;
+  /* Dark background */
 }
 
 .navbar-custom .navbar-brand img {
@@ -14,13 +16,16 @@ body {
 }
 
 .navbar-custom .nav-link {
-  color: #61dafb; /* React Blue */
+  color: #61dafb;
+  /* React Blue */
   padding: 15px;
   font-weight: 500;
 }
 
-.navbar-custom .nav-link:hover, .navbar-custom .nav-link.active {
-  color: #21a1f1; /* Lighter Blue */
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link.active {
+  color: #21a1f1;
+  /* Lighter Blue */
 }
 
 .navbar-custom .navbar-text {
@@ -35,18 +40,25 @@ body {
 
 .list-group-item {
   cursor: pointer;
-  border: none; /* Remove border */
-  border-radius: 0; /* No rounded corners */
+  border: none;
+  /* Remove border */
+  border-radius: 0;
+  /* No rounded corners */
   padding: 10px 15px;
-  background-color: #ffffff; /* White background */
-  color: #333; /* Dark text color */
+  background-color: #ffffff;
+  /* White background */
+  color: #333;
+  /* Dark text color */
   font-weight: 500;
   transition: background-color 0.3s, color 0.3s;
 }
 
-.list-group-item:hover, .list-group-item.active {
-  background-color: #e9ecef; /* Light grey background on hover and active */
-  color: #000; /* Darker text color */
+.list-group-item:hover,
+.list-group-item.active {
+  background-color: #e9ecef;
+  /* Light grey background on hover and active */
+  color: #000;
+  /* Darker text color */
 }
 
 .content-area {
@@ -54,17 +66,20 @@ body {
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  min-height: 300px; /* Ensure the content area has a minimum height */
+  min-height: 300px;
+  /* Ensure the content area has a minimum height */
 }
 
 .content-area h2 {
   margin-top: 0;
-  color: #20232a; /* Darker heading color */
+  color: #20232a;
+  /* Darker heading color */
   font-weight: 700;
 }
 
 .content-area p {
-  color: #555; /* Lighter text color */
+  color: #555;
+  /* Lighter text color */
 }
 
 .nested-list-group {
@@ -87,7 +102,7 @@ footer {
   margin-left: 0;
 }
 
-.row.no-gutters > [class*='col-'] {
+.row.no-gutters>[class*='col-'] {
   padding-right: 0;
   padding-left: 10px;
 }
@@ -97,52 +112,78 @@ footer {
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  min-height: 300px; /* Ensure the content area has a minimum height */
+  min-height: 300px;
+  /* Ensure the content area has a minimum height */
 }
 
-.content-area h1, .content-area h2, .content-area h3 {
+.content-area h1,
+.content-area h2,
+.content-area h3 {
   margin-top: 0;
-  color: #20232a; /* Darker heading color */
+  color: #20232a;
+  /* Darker heading color */
   font-weight: 700;
 }
 
 .content-area h1 {
-  font-size: 1.5rem; /* Larger size for main headings */
-  line-height: 1.2; /* Improved line spacing */
+  font-size: 1.5rem;
+  /* Larger size for main headings */
+  line-height: 1.2;
+  /* Improved line spacing */
 }
 
 .content-area h2 {
-  font-size: 1.2rem; /* Size for sub-headings */
-  line-height: 1.3; /* Improved line spacing */
-  margin-top: 20px; /* Space above the sub-heading */
+  font-size: 1.2rem;
+  /* Size for sub-headings */
+  line-height: 1.3;
+  /* Improved line spacing */
+  margin-top: 20px;
+  /* Space above the sub-heading */
+  padding-bottom: 5px;
 }
 
 .content-area h3 {
-  font-size: 1rem; /* Size for tertiary headings */
-  line-height: 1; /* Improved line spacing */
-  margin-top: 20px; /* Space above the tertiary heading */
+  font-size: 1rem;
+  /* Size for tertiary headings */
+  line-height: 1;
+  /* Improved line spacing */
+  margin-top: 20px;
+  /* Space above the tertiary heading */
+  padding-bottom: 5px;
 }
 
 .content-area p {
-  color: #555; /* Lighter text color */
-  font-size: 1rem; /* Slightly larger font size for readability */
-  line-height: 1.8; /* Improved line spacing */
-  margin-bottom: 10px; /* Space below paragraphs */
+  color: #555;
+  /* Lighter text color */
+  font-size: 1rem;
+  /* Slightly larger font size for readability */
+  line-height: 1.8;
+  /* Improved line spacing */
+  margin-bottom: 10px;
+  /* Space below paragraphs */
 }
 
 .content-area ol {
-  margin-top: 10px; 
+  margin-top: 10px;
 }
 
 .content-area li {
-  margin-top: 5px; 
+  margin-top: 5px;
 }
 
-.content-area li p{
-  color: #555; /* Lighter text color */
-  font-size: 1rem; /* Slightly larger font size for readability */
-  line-height: 1.8; /* Improved line spacing */
+.content-area ul {
+  margin-top: 10px;
+}
+
+.content-area li p {
+  color: #555;
+  /* Lighter text color */
+  font-size: 1rem;
+  /* Slightly larger font size for readability */
+  line-height: 1.8;
+  /* Improved line spacing */
   margin-bottom: 10px;
+  margin-top: 5px;
 }
 
 
@@ -157,7 +198,8 @@ footer {
   left: 10px;
   font-size: 14px;
   color: #007bff;
-  display: none; /* Initially hidden */
+  display: none;
+  /* Initially hidden */
 }
 
 .top-right {
@@ -169,7 +211,7 @@ footer {
   cursor: pointer;
 }
 
-pre{
+pre {
   border-radius: 10px;
   white-space: normal;
 }
