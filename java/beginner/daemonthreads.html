@@ -1,0 +1,284 @@
+<div class="content-area">
+    <h1>Daemon Threads</h1>
+    <h2>What are Daemon Threads?</h2>
+    <p>
+        Daemon threads in Java are a type of thread that operates in the background, providing support services to other
+        non-daemon threads. The primary characteristic that differentiates a daemon thread from a non-daemon thread
+        (also known as a user thread) is that the Java Virtual Machine (JVM) does not wait for daemon threads to finish
+        before exiting. If only daemon threads are running, the JVM will exit, stopping all daemon threads.
+    </p>
+    <h2>How to use Daemon Threads?</h2>
+    <p>
+        To use a daemon thread, you need to set a thread to be a daemon before it starts. This is done using the
+        setDaemon(true) method of the Thread class.
+    </p>
+    <p>
+        Here's a basic example:
+    </p>
+    <div class="code-container">
+        <div class="top-left copy-status">Code copied!</div>
+        <button class="top-right btn btn-primary copy-button">Copy</button>
+        <div class="top-right-expand btn btn-danger expand-button">Expand</div>
+        <div class="code-content collapsed">
+            <pre>
+                <code class="language-java" data-loc="java" data-src="DaemonThreadBasic.java"></code>
+         </pre>
+        </div>
+    </div>
+    <p>In this example, the main thread sleeps for 2 seconds and then finishes. The daemon thread, which prints a
+        message every 500 milliseconds, will be stopped when the main thread exits.</p>
+
+    <h2>When to Use Daemon Threads?</h2>
+    <p>Daemon threads are used for background tasks that are not critical to the application's operation. Som eusecases
+        include:</p>
+    <ol>
+        <li>
+            <p><b>Garbage Collection: </b>The JVM's garbage collector is a daemon thread.</p>
+        </li>
+        <li>
+            <p><b>Background Monitoring: </b>Monitoring tasks that periodically check resource usage, log maintenance,
+                etc.</p>
+        </li>
+        <li>
+            <p><b>Auto-Save functionality: </b>Periodically saving the state of an application.</p>
+        </li>
+        <li>
+            <p><b>Idle Resource Management: </b>Managing resources when the application is idle.</p>
+        </li>
+    </ol>
+
+    <h2>Resource Cleanup Example</h2>
+    <p>In this example, we'll implement a more complex scenario where a daemon thread performs periodic resource
+        cleanup.</p>
+    <div class="code-container">
+        <div class="top-left copy-status">Code copied!</div>
+        <button class="top-right btn btn-primary copy-button">Copy</button>
+        <div class="top-right-expand btn btn-danger expand-button">Expand</div>
+        <div class="code-content collapsed">
+            <pre>
+                <code class="language-java" data-loc="java" data-src="DaemonResourceCleanup.java"></code>
+         </pre>
+        </div>
+    </div>
+
+    <p style="padding-top:15px;">
+        In the above code, the cleanup daemon thread is periodically checking whether the resource is
+        currently in use or not. If the resource is not in use, it prints a message indicating that it is performing
+        "resource cleanup." However, in this specific implementation, the cleanup action is limited to printing a
+        message and does not perform any actual resource management or cleanup operations.
+    </p>
+    <h3>Purpose of the Cleanup Daemon Thread</h3>
+    <p>
+        The primary role of the cleanup daemon thread in this code is to illustrate how a daemon thread can monitor the
+        state of a resource and perform an action (in this case, printing a message) when the resource is not in use.
+    </p>
+
+    <h2>Potential Real-World Applications</h2>
+    <p>In a real-world scenario, the cleanup action might involve more substantial tasks, such as:</p>
+    <ul>
+        <li>
+            <p><b>Releasing System Resources: </b>Closing files, network connections, or other system resources that are
+                no longer needed.</p>
+        </li>
+        <li>
+            <p><b>Garbage Collection: </b>Explicitly removing unused objects or data structures to free up memory.</p>
+        </li>
+        <li>
+            <p><b>Logging and Monitoring: </b>Logging the state of the system or resources for monitoring purposes.</p
+                </li>
+        <li>
+            <p><b>Housekeeping Tasks: </b>Performing regular maintenance tasks such as clearing temporary files,
+                resetting states, or updating status indicators.</p>
+        </li>
+    </ul>
+
+    <h2>Pros and Cons of Daemon Threads</h2>
+
+    <h3>Pros:</h3>
+    <ul>
+        <li>
+            <p><b>Resource Management: </b>Daemon threads automatically get terminated when all user threads finish,
+                preventing resource leaks.</p>
+        </li>
+        <li>
+            <p><b>Background Tasks: </b>Ideal for tasks that run in the background without affecting the main
+                application flow.</p>
+        </li>
+    </ul>
+    <h3>Cons:</h3>
+    <ul>
+        <li>
+            <p><b>No Guarantees for Completion: </b>Since the JVM exits without waiting for daemon threads, they may not
+                complete their tasks.</p>
+        </li>
+        <li>
+            <p><b>Exception Handling: </b>Daemon threads should handle exceptions carefully as they may terminate
+                abruptly without warning.</p>
+        </li>
+    </ul>
+
+    <h2>Additional points on Daemon Threads</h2>
+    <h3>Thread priority with Daemon Threads</h3>
+    <p>
+        Daemon threads have the same capabilities and characteristics as user threads, except for their role in the
+        JVM's lifecycle management. However, like any thread, daemon threads can have priorities set using the
+        <b><i>setPriority(int newPriority)</i></b> method. Higher priority daemon threads will be scheduled more
+        frequently by the JVM
+        thread scheduler.
+    </p>
+    <h3>Lifecycle and State of Daemon Threads</h3>
+    <p>
+        Daemon threads go through the same lifecycle and states as user threads: New, Runnable, Blocked, Waiting, Timed
+        Waiting, and Terminated. It’s important to handle their lifecycle properly to avoid resource contention and
+        ensure proper exception handling.
+    </p>
+    <h3>Synchronization and Daemon Threads</h3>
+    <p>
+        Just like user threads, daemon threads can access synchronized blocks and methods. Proper synchronization
+        mechanisms should be in place to prevent race conditions, especially when daemon threads perform background
+        tasks that might interact with shared resources.
+    </p>
+    <h3>Exceptions in Daemon Threads</h3>
+    <p>
+        Exceptions in daemon threads can be tricky because the JVM does not provide a direct way to catch uncaught
+        exceptions in daemon threads from the main thread. It’s important to handle exceptions within the daemon thread
+        itself to ensure that the application does not fail silently. You can set an
+        <b><i>UncaughtExceptionHandler</i></b> to catch
+        and handle exceptions that are not caught within the thread.
+    </p>
+    <p>Here's an example:</p>
+    <div class="code-container">
+        <div class="top-left copy-status">Code copied!</div>
+        <button class="top-right btn btn-primary copy-button">Copy</button>
+        <div class="top-right-expand btn btn-danger expand-button">Expand</div>
+        <div class="code-content collapsed">
+            <pre>
+                <code class="language-java" data-loc="java" data-src="DaemonThreadException.java"></code>
+            </pre>
+        </div>
+    </div>
+    <h2>Daemon Threads vs. User Threads</h2>
+    <h3>Daemon Threads:</h3>
+    <ul>
+        <li>
+            <p>Support services in the background.</p>
+        </li>
+        <li>
+            <p>JVM exits when only daemon threads are left.</p>
+        </li>
+        <li>
+            <p>Used for tasks like garbage collection, monitoring, background tasks.</p>
+        </li>
+    </ul>
+    <h3>User Threads:</h3>
+    <ul>
+        <li>
+            <p>Perform main application logic.</p>
+        </li>
+        <li>
+            <p>JVM waits for all user threads to complete before exiting.</p>
+        </li>
+        <li>
+            <p>Typically used for main tasks that require completion.</p>
+        </li>
+    </ul>
+    <h2>Best Practices</h2>
+    <ul>
+        <li>
+            <p><b>Avoid Critical Tasks in Daemon Threads: </b>Since the JVM does not wait for daemon threads to
+                complete, avoid putting critical tasks in daemon threads.</p>
+        </li>
+        <li>
+            <p><b>Handle Exceptions: </b>Always handle exceptions within daemon threads to avoid silent failures.</p>
+        </li>
+        <li>
+            <p><b>Synchronization: </b>Use proper synchronization when accessing shared resources to prevent race
+                conditions.</p>
+        </li>
+        <li>
+            <p><b>Resource Management: </b>Ensure that resources held by daemon threads are properly released when the
+                application exits.</p>
+        </li>
+    </ul>
+    <h2>Advanced Example: Daemon Threads for a Scheduled Task</h2>
+    <p>Here’s a more advanced example where a daemon thread is used to perform a scheduled task:</p>
+    <div class="code-container">
+        <div class="top-left copy-status">Code copied!</div>
+        <button class="top-right btn btn-primary copy-button">Copy</button>
+        <div class="top-right-expand btn btn-danger expand-button">Expand</div>
+        <div class="code-content collapsed">
+            <pre>
+                <code class="language-java" data-loc="java" data-src="DaemonTimerThread.java"></code>
+            </pre>
+        </div>
+    </div>
+    <p style="padding-top:15px;">In this example, a Timer object is created as a daemon thread (new Timer(true)). It
+        schedules a TimerTask to run
+        at fixed intervals. The main thread sleeps for 10 seconds, allowing the daemon thread to execute the scheduled
+        task periodically. When the main thread exits, the JVM will exit, and the daemon thread will stop executing.</p>
+
+    <p>This example demonstrates how daemon threads can be used effectively for scheduled background tasks, ensuring
+        they do not prevent the JVM from shutting down when the application completes.</p>
+
+    <h2>Additional Considerations for Daemon Threads</h2>
+    <h3>Impact on Application Design</h3>
+    <p>When designing applications that utilize daemon threads, it's important to consider the overall architecture and
+        how background tasks integrate with the main application logic. Here are a few more considerations:</p>
+    <ul>
+        <li>
+            <p><b>Graceful Shutdown: </b>Ensure that daemon threads can be stopped gracefully if needed. This might
+                involve setting a flag that the daemon thread checks periodically to exit cleanly.</p>
+        </li>
+        <li>
+            <p><b>Resource Management: </b>Daemon threads should release resources (like file handles or network
+                connections) properly before exiting. This ensures that resources are not left in an inconsistent state.
+            </p>
+        </li>
+        <li>
+            <p><b>Thread Pools: </b>When dealing with multiple background tasks, consider using thread pools
+                (<i>ExecutorService</i>) with a mix of user and daemon threads for better control over resource
+                allocation and
+                task scheduling.
+            </p>
+        </li>
+    </ul>
+    <h3>Example: Graceful Shutdown</h3>
+    <div class="code-container">
+        <div class="top-left copy-status">Code copied!</div>
+        <button class="top-right btn btn-primary copy-button">Copy</button>
+        <div class="top-right-expand btn btn-danger expand-button">Expand</div>
+        <div class="code-content collapsed">
+            <pre>
+                <code class="language-java" data-loc="java" data-src="DaemonGracefulShutdown.java"></code>
+            </pre>
+        </div>
+    </div>
+    <p style="padding-top:15px;">In this example, the <b><i>BackgroundTask</i></b> class implements a Runnable that
+        periodically prints a
+        message. The stop method sets a running flag to false, signaling the thread to exit gracefully.</p>
+    <h2>Integration with Thread Pools</h2>
+    <p>We will go into Thread Pools later, but here is how to integrate Daemon threads with Thread pools. Daemon threads
+        can be used within thread pools to manage background tasks efficiently. Here's how to create a thread pool with
+        daemon threads:</p>
+
+    <div class="code-container">
+        <div class="top-left copy-status">Code copied!</div>
+        <button class="top-right btn btn-primary copy-button">Copy</button>
+        <div class="top-right-expand btn btn-danger expand-button">Expand</div>
+        <div class="code-content collapsed">
+            <pre>
+                    <code class="language-java" data-loc="java" data-src="DaemonThreadPools.java"></code>
+                </pre>
+        </div>
+    </div>
+    <p style="padding-top:15px;">In this example, a custom <b><i>ThreadFactory</i></b> is used to create daemon threads
+        within a
+        thread pool. The <b><i>Executors.newFixedThreadPool</i></b> method creates a fixed-size thread pool, and tasks
+        are submitted
+        for execution. The main thread sleeps for 5 seconds before shutting down the executor service.</p>
+
+    <h3>Conclusion</h3>
+    <p>Daemon threads are a powerful feature in Java for running background tasks that do not prevent the JVM from
+        shutting down. Understanding when and how to use them, handling their lifecycle properly, and being aware of
+        their pros and cons are essential for effective multithreaded application design.</p>
+</div>

@@ -38,13 +38,24 @@ $(document).ready(function () {
                 });
                 Prism.highlightAll();
                 $('.copy-button').click(function () {
-                    var code = $(this).siblings('pre').find('code').text();
+                    var code = $(this).siblings('.code-content').find('pre').find('code').text();
                     var copyStatus = $(this).siblings('div .copy-status')
                     navigator.clipboard.writeText(code).then(function () {
                         copyStatus.fadeIn().delay(5000).fadeOut();
                     }, function () {
                         console.log("error copy");
                     });
+                });
+                // Add expand functionality
+                $('.expand-button').click(function () {
+                    var codeContent = $(this).siblings('.code-content');
+                    if (codeContent.hasClass('collapsed')) {
+                        codeContent.removeClass('collapsed').addClass('expanded');
+                        $(this).text('Collapse');
+                    } else {
+                        codeContent.removeClass('expanded').addClass('collapsed');
+                        $(this).text('Expand');
+                    }
                 });
             });
             $('.list-group-item').removeClass('active');
