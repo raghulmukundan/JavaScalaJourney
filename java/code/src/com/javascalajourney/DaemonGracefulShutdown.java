@@ -37,6 +37,12 @@ public class DaemonGracefulShutdown {
         }
 
         task.stop(); // Signal the daemon thread to stop
+        try {
+            daemonThread.join(); // Wait for the daemon thread to finish
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         System.out.println("Main thread finished");
     }
 }
